@@ -1,0 +1,164 @@
+/* ===================================
+   THEMES - Color Variables & Modes
+   =================================== */
+
+/* Light Theme Variables */
+:root {
+  /* Background Colors */
+  --bg-primary: #f0f0f0;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f6f8fa;
+  --bg-hover: #e1e4e8;
+  --bg-active: #d1d5da;
+  
+  /* Text Colors */
+  --text-primary: #24292e;
+  --text-secondary: #6a737d;
+  --text-on-success: #1e40af;
+  --text-on-warning: #92400e;
+  --text-on-danger: #dc2626;
+  
+  /* Border Colors */
+  --border-primary: #d1d5da;
+  --border-secondary: #e1e4e8;
+  --border-tertiary: #f6f8fa;
+  --border-hover: #c6cbd1;
+  
+  /* Accent Colors */
+  --accent-primary: #0366d6;
+  --accent-success: #28a745;
+  --accent-warning: #f9c74f;
+  --accent-danger: #f94144;
+  --accent-danger-dark: #d90429;
+  --accent-danger-glow: rgba(249, 65, 68, 0.3);
+  
+  /* Status Colors */
+  --status-success: #cce7ff;
+  --status-warning: #fff3cd;
+  --status-danger: #f8d7da;
+  --status-neutral: #e1e4e8;
+  
+  /* Progress & Charts */
+  --progress-bg: #e1e4e8;
+  --chart-bg: #ffffff;
+  --chart-overlay: linear-gradient(to right, transparent 0%, rgba(227, 227, 227, 0.1) 50%, transparent 100%);
+  
+  /* Shadows */
+  --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  /* Background Colors */
+  --bg-primary: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --bg-hover: #30363d;
+  --bg-active: #484f58;
+  
+  /* Text Colors */
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-on-success: #1e40af;
+  --text-on-warning: #92400e;
+  --text-on-danger: #ffffff;
+  
+  /* Border Colors */
+  --border-primary: #30363d;
+  --border-secondary: #21262d;
+  --border-tertiary: #161b22;
+  --border-hover: #484f58;
+  
+  /* Accent Colors */
+  --accent-primary: #58a6ff;
+  --accent-success: #3fb950;
+  --accent-warning: #d29922;
+  --accent-danger: #f85149;
+  --accent-danger-dark: #da3633;
+  --accent-danger-glow: rgba(248, 81, 73, 0.3);
+  
+  /* Status Colors */
+  --status-success: rgba(30, 64, 175, 0.15);
+  --status-warning: rgba(146, 64, 14, 0.15);
+  --status-danger: rgba(248, 81, 73, 0.15);
+  --status-neutral: #30363d;
+  
+  /* Progress & Charts */
+  --progress-bg: #21262d;
+  --chart-bg: #161b22;
+  --chart-overlay: linear-gradient(to right, transparent 0%, rgba(139, 148, 158, 0.1) 50%, transparent 100%);
+  
+  /* Shadows */
+  --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Theme Transition Animation */
+* {
+  transition: 
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Prevent transition on page load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Dark mode specific adjustments */
+[data-theme="dark"] .chart-container canvas {
+  filter: brightness(0.9);
+}
+
+[data-theme="dark"] .disk-progress-fill.medium {
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-warning));
+}
+
+[data-theme="dark"] .disk-progress-fill.high {
+  background: linear-gradient(90deg, var(--accent-warning), var(--accent-danger));
+}
+
+/* System theme preference detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Apply dark theme variables if no explicit theme is set */
+    --bg-primary: #0d1117;
+    --bg-secondary: #161b22;
+    --bg-tertiary: #21262d;
+    --bg-hover: #30363d;
+    --bg-active: #484f58;
+    
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --text-on-success: #000000;
+    --text-on-warning: #000000;
+    --text-on-danger: #ffffff;
+    
+    --border-primary: #30363d;
+    --border-secondary: #21262d;
+    --border-tertiary: #161b22;
+    --border-hover: #484f58;
+    
+    --accent-primary: #58a6ff;
+    --accent-success: #3fb950;
+    --accent-warning: #d29922;
+    --accent-danger: #f85149;
+    --accent-danger-dark: #da3633;
+    --accent-danger-glow: rgba(248, 81, 73, 0.3);
+    
+    --status-success: rgba(63, 185, 80, 0.15);
+    --status-warning: rgba(210, 153, 34, 0.15);
+    --status-danger: rgba(248, 81, 73, 0.15);
+    --status-neutral: #30363d;
+    
+    --progress-bg: #21262d;
+    --chart-bg: #161b22;
+    --chart-overlay: linear-gradient(to right, transparent 0%, rgba(139, 148, 158, 0.1) 50%, transparent 100%);
+    
+    --shadow-small: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.4);
+  }
+}

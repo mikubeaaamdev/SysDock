@@ -1,0 +1,280 @@
+/* ===================================
+   SETTINGS WINDOW STYLES
+   =================================== */
+
+/* Base styles for settings window */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Settings Header */
+.settings-header {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-primary);
+  padding: 20px;
+  text-align: center;
+}
+
+.settings-header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* Settings Content */
+.settings-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Settings Sections */
+.settings-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-small);
+}
+
+.settings-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-secondary);
+}
+
+/* Setting Items */
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.setting-info {
+  flex: 1;
+}
+
+.setting-info label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.setting-description {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.setting-control {
+  margin-left: 16px;
+}
+
+/* Theme Selector */
+.theme-selector {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+
+.theme-selector:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-hover);
+}
+
+.theme-selector:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(3, 102, 214, 0.1);
+}
+
+.theme-selector option {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+/* About Section */
+.about-info {
+  text-align: center;
+}
+
+.app-icon {
+  margin-bottom: 20px;
+}
+
+.app-icon .icon {
+  display: block;
+  margin: 0 auto 12px;
+  color: var(--accent-primary);
+}
+
+.app-icon h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.app-tagline {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+/* Version Info */
+.version-info {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
+  border-radius: 4px;
+  padding: 16px;
+  text-align: left;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-tertiary);
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 500;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.info-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* Developer Section */
+.developer-info {
+  text-align: center;
+}
+
+.developer-info p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.build-date {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-family: 'Consolas', 'Monaco', monospace;
+}
+
+/* Settings Footer */
+.settings-footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-primary);
+  padding: 16px 20px;
+  text-align: right;
+}
+
+.close-btn, #close-settings {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover, #close-settings:hover {
+  background: var(--accent-primary);
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+.close-btn:active, #close-settings:active {
+  transform: translateY(0);
+}
+
+/* Scrollbar styling for dark theme */
+[data-theme="dark"] .settings-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+[data-theme="dark"] .settings-content::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+[data-theme="dark"] .settings-content::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] .settings-content::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Loading state */
+.loading {
+  opacity: 0.6;
+  animation: pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  100% { opacity: 0.8; }
+}
+
+/* Responsive design */
+@media (max-width: 450px) {
+  .settings-content {
+    padding: 16px;
+  }
+  
+  .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .setting-control {
+    margin-left: 0;
+    margin-top: 8px;
+    width: 100%;
+  }
+  
+  .theme-selector {
+    width: 100%;
+  }
+}

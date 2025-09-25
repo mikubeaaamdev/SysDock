@@ -1,69 +1,25 @@
-/* Reset and base styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f0f0f0;
-  color: #333333;
-  min-height: 100vh;
-  padding: 12px;
-  overflow-x: auto;
-}
-
-/* Header */
-header {
-  background: #ffffff;
-  border: 1px solid #d1d5da;
-  border-radius: 3px;
-  padding: 16px 20px;
-  margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-header h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #24292e;
-  margin-bottom: 4px;
-}
-
-.subtitle {
-  font-size: 0.9rem;
-  color: #6a737d;
-  font-weight: 400;
-}
-
-/* Dashboard Grid */
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 12px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* ===================================
+   COMPONENTS - Widgets & UI Elements
+   =================================== */
 
 /* Widget Base Styles */
 .widget {
-  background: #ffffff;
-  border: 1px solid #d1d5da;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-primary);
   border-radius: 3px;
   padding: 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-small);
   transition: box-shadow 0.2s ease;
 }
 
 .widget:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-medium);
 }
 
 /* Widget Headers */
 .widget-header {
-  background: #f6f8fa;
-  border-bottom: 1px solid #e1e4e8;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-secondary);
   padding: 12px 16px;
   display: flex;
   justify-content: space-between;
@@ -73,9 +29,14 @@ header h1 {
 .widget-header h3 {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #24292e;
+  color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+/* Widget Content */
+.widget-content {
+  padding: 16px;
 }
 
 /* Status Indicators */
@@ -84,28 +45,30 @@ header h1 {
   font-weight: 600;
   padding: 4px 8px;
   border-radius: 2px;
-  background: #e1e4e8;
+  background: var(--status-neutral);
   color: #24292e;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-secondary);
 }
 
 .cpu-load.high, .memory-usage.high {
-  background: #ffeaea;
-  color: #d73a49;
+  background: var(--status-danger);
+  color: var(--text-on-danger);
 }
 
 .cpu-load.medium, .memory-usage.medium {
-  background: #fff8dc;
-  color: #b08800;
+  background: var(--status-warning);
+  color: var(--text-on-warning);
 }
 
 .cpu-load.low, .memory-usage.low {
-  background: #dcffe4;
-  color: #28a745;
+  background: var(--status-success);
+  color: var(--text-on-success);
 }
 
 .disk-count, .network-status {
   font-size: 0.8rem;
-  color: #6a737d;
+  color: var(--text-secondary);
   font-weight: 400;
 }
 
@@ -113,7 +76,7 @@ header h1 {
 .progress-bar {
   width: 100%;
   height: 4px;
-  background: #e1e4e8;
+  background: var(--progress-bg);
   border-radius: 0;
   overflow: hidden;
   margin-bottom: 16px;
@@ -121,32 +84,27 @@ header h1 {
 
 .progress-fill {
   height: 100%;
-  background: #0366d6;
+  background: var(--accent-primary);
   border-radius: 0;
-  transition: width 0.5s ease;
+  transition: width 0.5s ease, background-color 0.3s ease;
 }
 
 /* CPU specific progress colors */
 .cpu-widget .progress-fill {
-  background: #0366d6;
+  background: var(--accent-primary);
 }
 
 /* Memory specific progress colors */
 .memory-widget .progress-fill {
-  background: #28a745;
+  background: var(--accent-success);
 }
 
 .memory-widget .progress-fill.high {
-  background: #d73a49;
+  background: var(--accent-danger);
 }
 
 .cpu-widget .progress-fill.high {
-  background: #d73a49;
-}
-
-/* Widget Content */
-.widget-content {
-  padding: 16px;
+  background: var(--accent-danger);
 }
 
 /* Chart Container */
@@ -160,21 +118,21 @@ header h1 {
 
 .chart-title {
   font-size: 0.75rem;
-  color: #24292e;
+  color: var(--text-primary);
   font-weight: 600;
 }
 
 .chart-timespan {
   font-size: 0.7rem;
-  color: #6a737d;
+  color: var(--text-secondary);
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
 .chart-container {
   height: 120px;
   margin-bottom: 16px;
-  background: #ffffff;
-  border: 1px solid #d1d5da;
+  background: var(--chart-bg);
+  border: 1px solid var(--border-primary);
   border-radius: 3px;
   padding: 4px;
   position: relative;
@@ -192,7 +150,7 @@ header h1 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, transparent 0%, rgba(227, 227, 227, 0.1) 50%, transparent 100%);
+  background: var(--chart-overlay);
   pointer-events: none;
   z-index: 1;
 }
@@ -210,7 +168,7 @@ header h1 {
   align-items: center;
   padding: 6px 0;
   font-size: 0.8rem;
-  border-bottom: 1px solid #f6f8fa;
+  border-bottom: 1px solid var(--border-tertiary);
 }
 
 .detail-row:last-child {
@@ -218,13 +176,13 @@ header h1 {
 }
 
 .detail-row span:first-child {
-  color: #6a737d;
+  color: var(--text-secondary);
   font-weight: 500;
 }
 
 .detail-row span:last-child {
   font-weight: 600;
-  color: #24292e;
+  color: var(--text-primary);
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
@@ -236,11 +194,12 @@ header h1 {
 }
 
 .disk-item {
-  background: #f6f8fa;
-  border: 1px solid #e1e4e8;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
   border-radius: 3px;
   padding: 12px;
-  border-left: 3px solid #e1e4e8;
+  border-left: 3px solid var(--border-secondary);
+  transition: all 0.3s ease;
 }
 
 .disk-info {
@@ -253,18 +212,18 @@ header h1 {
 .disk-name {
   font-weight: 600;
   font-size: 0.8rem;
-  color: #24292e;
+  color: var(--text-primary);
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
 .disk-usage {
   font-size: 0.75rem;
-  color: #6a737d;
+  color: var(--text-secondary);
 }
 
 .disk-progress {
   height: 6px;
-  background: #e1e4e8;
+  background: var(--progress-bg);
   border-radius: 3px;
   overflow: hidden;
 }
@@ -278,30 +237,30 @@ header h1 {
 
 /* Smooth color transitions for disk usage */
 .disk-progress-fill.low {
-  background: #0366d6; /* Blue for low usage (0-60%) */
+  background: var(--accent-primary);
 }
 
 .disk-progress-fill.medium {
-  background: linear-gradient(90deg, #0366d6, #f9c74f); /* Blue to Yellow for medium usage (60-80%) */
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-warning));
 }
 
 .disk-progress-fill.high {
-  background: linear-gradient(90deg, #f9c74f, #f94144); /* Yellow to Red for high usage (80%+) */
+  background: linear-gradient(90deg, var(--accent-warning), var(--accent-danger));
 }
 
 .disk-progress-fill.critical {
-  background: #f94144; /* Solid red for critical usage (90%+) */
+  background: var(--accent-danger);
   animation: pulse-red 2s ease-in-out infinite alternate;
 }
 
 @keyframes pulse-red {
   0% { 
-    background: #f94144;
-    box-shadow: 0 0 5px rgba(249, 65, 68, 0.3);
+    background: var(--accent-danger);
+    box-shadow: 0 0 5px var(--accent-danger-glow);
   }
   100% { 
-    background: #d90429;
-    box-shadow: 0 0 10px rgba(249, 65, 68, 0.6);
+    background: var(--accent-danger-dark);
+    box-shadow: 0 0 10px var(--accent-danger-glow);
   }
 }
 
@@ -313,24 +272,25 @@ header h1 {
 }
 
 .network-interface {
-  background: #f6f8fa;
-  border: 1px solid #e1e4e8;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-secondary);
   border-radius: 3px;
   padding: 12px;
-  border-left: 3px solid #28a745;
+  border-left: 3px solid var(--accent-success);
+  transition: all 0.3s ease;
 }
 
 .interface-name {
   font-weight: 600;
   margin-bottom: 6px;
   font-size: 0.8rem;
-  color: #24292e;
+  color: var(--text-primary);
   font-family: 'Consolas', 'Monaco', monospace;
 }
 
 .interface-details {
   font-size: 0.75rem;
-  color: #6a737d;
+  color: var(--text-secondary);
   line-height: 1.4;
   font-family: 'Consolas', 'Monaco', monospace;
 }
@@ -347,89 +307,66 @@ header h1 {
 }
 
 .status-up {
-  background: #dcffe4;
-  color: #28a745;
+  background: var(--status-success);
+  color: var(--text-on-success);
 }
 
 .status-down {
-  background: #ffeaea;
-  color: #d73a49;
+  background: var(--status-danger);
+  color: var(--text-on-danger);
 }
 
-/* Footer */
-footer {
-  margin-top: 16px;
-  padding: 12px 16px;
-  background: #ffffff;
-  border: 1px solid #d1d5da;
-  border-radius: 3px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-footer p {
-  margin: 0;
-  font-size: 0.8rem;
-  color: #6a737d;
-  font-family: 'Consolas', 'Monaco', monospace;
-}
-
-.refresh-btn {
-  background: #f6f8fa;
-  color: #24292e;
-  border: 1px solid #d1d5da;
+/* Buttons */
+.refresh-btn, .settings-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-primary);
   padding: 6px 12px;
   border-radius: 3px;
   font-weight: 500;
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  margin-left: 8px;
 }
 
-.refresh-btn:hover {
-  background: #e1e4e8;
-  border-color: #c6cbd1;
+.refresh-btn:hover, .settings-btn:hover {
+  background: var(--bg-hover);
+  border-color: var(--border-hover);
 }
 
-.refresh-btn:active {
-  background: #d1d5da;
+.refresh-btn:active, .settings-btn:active {
+  background: var(--bg-active);
 }
 
-/* Responsive Design */
+/* Settings Button */
+.settings-btn {
+  padding: 8px;
+  margin-left: 0;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gear-icon {
+  transition: transform 0.3s ease;
+  color: var(--text-primary);
+}
+
+.settings-btn:hover .gear-icon {
+  transform: rotate(90deg);
+}
+
+/* Responsive adjustments for components */
 @media (max-width: 768px) {
-  .dashboard {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  
-  body {
-    padding: 8px;
-  }
-  
-  header h1 {
-    font-size: 1.3rem;
-  }
-  
   .widget-content {
     padding: 12px;
   }
   
-  footer {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
+  .chart-container {
+    height: 100px;
   }
-}
-
-/* Loading Animation */
-@keyframes pulse {
-  0% { opacity: 0.8; }
-  50% { opacity: 1; }
-  100% { opacity: 0.8; }
-}
-
-.loading {
-  animation: pulse 1s infinite;
 }
